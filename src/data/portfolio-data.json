@@ -1,0 +1,39 @@
+
+{
+  "items": [
+    {
+      "id": "about",
+      "title": "About Me",
+      "icon": "User",
+      "defaultSize": { "width": 500, "height": 350 },
+      "filePath": "content/portfolio-items/about.md"
+    },
+    {
+      "id": "projects",
+      "title": "Projects",
+      "icon": "FolderGit2",
+      "defaultSize": { "width": 500, "height": 350 },
+      "filePath": "content/portfolio-items/projects.md"
+    },
+    {
+      "id": "experience",
+      "title": "Experience", 
+      "icon": "BriefcaseBusiness",
+      "defaultSize": { "width": 500, "height": 350 },
+      "filePath": "content/portfolio-items/experience.md"
+    },{
+      "id": "experience3",
+      "title": "Experience3", 
+      "icon": "BriefcaseBusiness",
+      "defaultSize": { "width": 500, "height": 350 },
+      "filePath": "content/portfolio-items/experience3.md"
+    },
+    {
+      "id": "contact",
+      "title": "Contact",
+      "icon": "Mail",
+      "defaultSize": { "width": 500, "height": 350 },
+      "filePath": "content/portfolio-items/contact.md"
+    }
+  ]
+}

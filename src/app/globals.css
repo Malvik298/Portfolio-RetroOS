@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 100% 6%;
+    --foreground: 81 91% 53%;
+    
+    --card: 240 100% 8%;
+    --card-foreground: 81 91% 53%;
+    
+    --popover: 240 100% 6%;
+    --popover-foreground: 81 91% 53%;
+    
+    --primary: 81 91% 53%;
+    --primary-foreground: 240 100% 6%;
+    
+    --secondary: 45 100% 51%;
+    --secondary-foreground: 240 100% 6%;
+    
+    --muted: 240 100% 10%;
+    --muted-foreground: 81 91% 40%;
+    
+    --accent: 45 100% 51%;
+    --accent-foreground: 240 100% 6%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 81 91% 53%;
+    --input: 240 100% 10%;
+    --ring: 81 91% 53%;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 100% 6%;
+    --foreground: 81 91% 53%;
+    
+    --card: 240 100% 8%;
+    --card-foreground: 81 91% 53%;
+    
+    --popover: 240 100% 6%;
+    --popover-foreground: 81 91% 53%;
+    
+    --primary: 81 91% 53%;
+    --primary-foreground: 240 100% 6%;
+    
+    --secondary: 45 100% 51%;
+    --secondary-foreground: 240 100% 6%;
+    
+    --muted: 240 100% 10%;
+    --muted-foreground: 81 91% 40%;
+    
+    --accent: 45 100% 51%;
+    --accent-foreground: 240 100% 6%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 81 91% 53%;
+    --input: 240 100% 10%;
+    --ring: 81 91% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-code;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+
+  /* Allow text selection inside windows and terminals */
+  .window-content, .terminal-output, input, textarea {
+    -webkit-user-select: text; /* Safari */
+    -ms-user-select: text; /* IE 10 and IE 11 */
+    user-select: text; /* Standard syntax */
+  }
+}

@@ -1,0 +1,29 @@
+
+{
+  "topics": [
+    {
+      "id": "tech-guides",
+      "title": "Tech Guides",
+      "articles": [
+        {
+          "id": "my-first-article2",
+          "title": "My First Article",
+          "summary": "An introduction to creating dynamic content in a retro-themed portfolio.",
+          "filePath": "content/articles/my-first-article2.md"
+        }
+      ]
+    },
+    {
+      "id": "portfolio-deep-dive",
+      "title": "Portfolio Deep-Dive",
+      "articles": [
+        {
+          "id": "exploring-the-terminal",
+          "title": "Exploring the Terminal",
+          "summary": "A quick guide to the built-in terminal commands.",
+          "filePath": "content/articles/exploring-the-terminal.md"
+        }
+      ]
+    }
+  ]
+}

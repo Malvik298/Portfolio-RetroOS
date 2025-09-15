@@ -1,0 +1,46 @@
+{
+  "commands": [
+    {
+      "command": "help",
+      "description": "Show this help message.",
+      "type": "special",
+      "content": "help"
+    },
+    {
+      "command": "about",
+      "description": "Display information about me.",
+      "type": "component",
+      "content": "about"
+    },
+    {
+      "command": "projects",
+      "description": "List my recent projects.",
+      "type": "component",
+      "content": "projects"
+    },
+    {
+      "command": "contact",
+      "description": "Show my contact information.",
+      "type": "component",
+      "content": "contact"
+    },
+    {
+      "command": "experience",
+      "description": "Show my professional experience information.",
+      "type": "component",
+      "content": "experience"
+    },
+    {
+      "command": "date",
+      "description": "Display the current date and time.",
+      "type": "special",
+      "content": "date"
+    },
+    {
+      "command": "clear",
+      "description": "Clear the terminal screen.",
+      "type": "special",
+      "content": "clear"
+    }
+  ]
+}
