@@ -2,22 +2,22 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
-  basePath: '/portfolio',
+  basePath: '',
   output: 'export',
-  assetPrefix: '/portfolio',
+  assetPrefix: '',
   env: {
-    basePath: '/portfolio',
+    basePath: '',
   },
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/portfolio',
-        basePath: false,
-        permanent: true,
-      },
-    ]
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/',
+  //       destination: '/portfolio',
+  //       basePath: false,
+  //       permanent: true,
+  //     },
+  //   ]
+  // },
   /* config options here */
   typescript: {
     ignoreBuildErrors: true,
