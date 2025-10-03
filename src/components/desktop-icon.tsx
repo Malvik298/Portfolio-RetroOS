@@ -30,12 +30,10 @@ export const DesktopIcon: React.FC<DesktopIconProps> = ({
   const startPos = useRef({ x: 0, y: 0 });
   const isMobile = useIsMobile();
   const iconRef = useRef<HTMLDivElement>(null);
+  const didDrag = useRef(false);
 
   const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
-    if (isMobile) return;
-
-    // Prevent drag from starting on right-click
-    if (e.button !== 0) return;
+    if (isMobile || e.button !== 0) return;
 
     if (!iconRef.current) return;
     const rect = iconRef.current.getBoundingClientRect();
@@ -44,48 +42,48 @@ export const DesktopIcon: React.FC<DesktopIconProps> = ({
       y: e.clientY - rect.top,
     };
     startPos.current = { x: e.clientX, y: e.clientY };
+    didDrag.current = false;
     setIsDragging(true);
     e.preventDefault();
   };
 
-  const handleMouseUp = (e: MouseEvent<HTMLDivElement>) => {
+  const handleMouseUp = (e: MouseEvent<HTMLDivElement> | globalThis.MouseEvent) => {
     if (isMobile) return;
 
-    const dx = Math.abs(e.clientX - startPos.current.x);
-    const dy = Math.abs(e.clientY - startPos.current.y);
-
-    if (dx < DRAG_THRESHOLD && dy < DRAG_THRESHOLD) {
+    if (!didDrag.current) {
       onClick();
     }
-
+    
     setIsDragging(false);
   };
 
   useEffect(() => {
     const handleMouseMove = (e: globalThis.MouseEvent) => {
       if (!isDragging || isMobile) return;
-      onDrag(id, {
-        x: e.clientX - offset.current.x,
-        y: e.clientY - offset.current.y,
-      });
-    };
+      
+      const dx = Math.abs(e.clientX - startPos.current.x);
+      const dy = Math.abs(e.clientY - startPos.current.y);
 
-    const handleMouseUpGlobal = (e: globalThis.MouseEvent) => {
-        if(isDragging) {
-            // We need to call our custom mouseUp to check for click vs drag
-            handleMouseUp(e as any);
-        }
+      if (dx > DRAG_THRESHOLD || dy > DRAG_THRESHOLD) {
+        didDrag.current = true;
+      }
+
+      if (didDrag.current) {
+        onDrag(id, {
+          x: e.clientX - offset.current.x,
+          y: e.clientY - offset.current.y,
+        });
+      }
     };
     
     if (isDragging) {
       document.addEventListener('mousemove', handleMouseMove);
-      // We use a global mouseup to catch cases where the user releases the mouse outside the icon
-      document.addEventListener('mouseup', handleMouseUpGlobal, { once: true });
+      document.addEventListener('mouseup', handleMouseUp, { once: true });
     }
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUpGlobal);
+      document.removeEventListener('mouseup', handleMouseUp);
     };
   }, [isDragging, id, onDrag, isMobile, onClick]);
 
@@ -99,7 +97,7 @@ export const DesktopIcon: React.FC<DesktopIconProps> = ({
     <div
       ref={iconRef}
       className={cn(
-        "flex flex-col items-center justify-start text-center w-24 h-24 p-2 rounded-md",
+        "flex flex-col items-center justify-start text-center w-24 h-24 p-2 rounded-md break-words",
         !isMobile && "absolute cursor-pointer hover:bg-primary/20",
         isMobile && "relative",
         isDragging && "bg-primary/30 z-20"

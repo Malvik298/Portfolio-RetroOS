@@ -5,6 +5,7 @@ import { Terminal } from '@/components/terminal';
 import portfolioData from '@/data/portfolio-data.json';
 import { PortfolioItemContent } from '@/components/portfolio-item-content';
 import { ArticleList } from '@/components/article-list';
+import { ContactForm } from '@/components/contact-form';
 
 export type PortfolioItemConfig = {
   id: string;
@@ -19,6 +20,18 @@ const Icons = LucideIcons as unknown as { [key: string]: LucideIcon };
 
 const dynamicItems: PortfolioItemConfig[] = portfolioData.items.map((item) => {
     const IconComponent = Icons[item.icon] || LucideIcons.File;
+    
+    // Special case for the contact form
+    if (item.id === 'contact') {
+        return {
+            id: item.id,
+            title: item.title,
+            Icon: IconComponent,
+            component: ContactForm,
+            defaultSize: item.defaultSize,
+        };
+    }
+    
     return {
         id: item.id,
         title: item.title,

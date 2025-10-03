@@ -156,7 +156,7 @@ export const Window: React.FC<WindowProps> = ({
             <X className="w-5 h-5" />
           </button>
         </div>
-        <div className="flex-grow overflow-auto">
+        <div className="flex-grow overflow-y-auto break-words">
           {children}
         </div>
       </div>
@@ -226,7 +226,7 @@ export const Window: React.FC<WindowProps> = ({
             </button>
         </div>
       </div>
-      <div className="flex-grow overflow-auto relative">
+      <div className="flex-grow overflow-y-auto relative break-words">
         {!isMaximized && !isMobile && resizeHandles.map(handle => (
           <div
             key={handle.direction}
@@ -235,9 +235,7 @@ export const Window: React.FC<WindowProps> = ({
             onMouseDown={(e) => handleResizeMouseDown(e, handle.direction)}
           />
         ))}
-        <div className="h-full w-full">
-            {children}
-        </div>
+        {children}
       </div>
     </div>
   );

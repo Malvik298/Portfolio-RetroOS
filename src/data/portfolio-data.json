@@ -21,12 +21,6 @@
       "icon": "BriefcaseBusiness",
       "defaultSize": { "width": 500, "height": 350 },
       "filePath": "content/portfolio-items/experience.md"
-    },{
-      "id": "experience3",
-      "title": "Experience3", 
-      "icon": "BriefcaseBusiness",
-      "defaultSize": { "width": 500, "height": 350 },
-      "filePath": "content/portfolio-items/experience3.md"
     },
     {
       "id": "contact",

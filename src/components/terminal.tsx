@@ -89,7 +89,7 @@ export const Terminal: React.FC = () => {
 
   return (
     <div 
-      className="bg-black/80 text-foreground w-full h-full p-2 font-code text-sm overflow-y-auto"
+      className="bg-black/80 text-foreground w-full h-full p-2 font-code text-sm overflow-y-auto break-words"
       onClick={() => inputRef.current?.focus()}
     >
       <div className="terminal-output">
